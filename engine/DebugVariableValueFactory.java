@@ -10,34 +10,34 @@ import com.sun.jdi.*;
 
 class DebugNativeVariableValue implements IDebugVariableValue
 {
-    DebugNativeVariableValue( Value value )
-    {
-        d_value = value;
-    }
+	DebugNativeVariableValue( Value value )
+	{
+		d_value = value;
+	}
 
-    // -----------------------------------------------------------------
+	// -----------------------------------------------------------------
 
-    public boolean isNull()
-    {
-        boolean result = ( d_value == null );
-        return result;
-    }
+	public boolean isNull()
+	{
+		boolean result = ( d_value == null );
+		return result;
+	}
 
-    public String getRawString()
-    {
-        assert !isNull();
-        String result = d_value.toString();
-        return result;
-    }
+	public String getRawString()
+	{
+		assert !isNull();
+		String result = d_value.toString();
+		return result;
+	}
 
-    public Value getNativeValue()
-    {
-        return d_value;
-    }
+	public Value getNativeValue()
+	{
+		return d_value;
+	}
 
-    // -----------------------------------------------------------------
+	// -----------------------------------------------------------------
 
-    final Value d_value;
+	final Value d_value;
 
 } // DebugNativeVariableValue
 
@@ -46,35 +46,35 @@ class DebugNativeVariableValue implements IDebugVariableValue
 
 class DebugFakeVariableValue implements IDebugVariableValue
 {
-    DebugFakeVariableValue( Object value )
-    {
-        d_value = value;
-    }
+	DebugFakeVariableValue( Object value )
+	{
+		d_value = value;
+	}
 
-    // -----------------------------------------------------------------
+	// -----------------------------------------------------------------
 
-    public boolean isNull()
-    {
-        boolean result = ( d_value == null );
-        return result;
-    }
+	public boolean isNull()
+	{
+		boolean result = ( d_value == null );
+		return result;
+	}
 
-    public String getRawString()
-    {
-        assert !isNull();
-        String result = d_value.toString();
-        return result;
-    }
+	public String getRawString()
+	{
+		assert !isNull();
+		String result = d_value.toString();
+		return result;
+	}
 
-    public Value getNativeValue()
-    {
-        assert false : "don't call getNativeValue() for Fake non-JDI Value!";
-        return null;
-    }
+	public Value getNativeValue()
+	{
+		assert false : "don't call getNativeValue() for Fake non-JDI Value!";
+		return null;
+	}
 
-    // -----------------------------------------------------------------
+	// -----------------------------------------------------------------
 
-    final Object d_value;
+	final Object d_value;
 
 } // DebugFakeVariableValue
 
@@ -83,23 +83,23 @@ class DebugFakeVariableValue implements IDebugVariableValue
 
 class DebugVariableValueFactory
 {
-    IDebugVariableValue createValue( Type type, Value rawValue )
-    {
+	IDebugVariableValue createValue( Type type, Value rawValue )
+	{
 		Value value = null;
 		if ( isScalarObject( type ) )
 			value = resolveScalarObjectValue( type, rawValue );
 		else
 			value = rawValue;
 
-        IDebugVariableValue result = new DebugNativeVariableValue( value );
-        return result;
-    }
+		IDebugVariableValue result = new DebugNativeVariableValue( value );
+		return result;
+	}
 
-    IDebugVariableValue createValue( Object value )
-    {
-        IDebugVariableValue result = new DebugFakeVariableValue( value );
-        return result;
-    }
+	IDebugVariableValue createValue( Object value )
+	{
+		IDebugVariableValue result = new DebugFakeVariableValue( value );
+		return result;
+	}
 
 	// -----------------------------------------------------------------
 
@@ -128,7 +128,7 @@ class DebugVariableValueFactory
 			{
 				ObjectReference scalarObject = ( ObjectReference ) objectValue;
 				result = scalarObject.getValue( field );
- 			}
+			}
 		}
 
 		return result;
@@ -136,8 +136,8 @@ class DebugVariableValueFactory
 
 	// -----------------------------------------------------------------
 
-    private Set< String > initScalarObjectTypes()
-    {
+	private Set< String > initScalarObjectTypes()
+	{
 		Set< String > scalarObjectTypes
 			= new TreeSet< String >(
 				Arrays.asList( new String[] {
@@ -153,12 +153,12 @@ class DebugVariableValueFactory
 					Consts.DoubleClassName } ) );
 
 		return scalarObjectTypes;
-    }
+	}
 
 	// -----------------------------------------------------------------
 
-    private final Set< String > d_scalarObjectTypes = initScalarObjectTypes();
+	private final Set< String > d_scalarObjectTypes = initScalarObjectTypes();
 
-    private final static String s_scalarObjectValueFieldName = "value";
+	private final static String s_scalarObjectValueFieldName = "value";
 
 } // DebugVariableValueFactory

@@ -4,12 +4,12 @@ package wingdbJavaDebugEngine;
 
 public class XParseError extends Exception
 {
-    public XParseError ( String errorMessage )
-    {
-        super ( errorMessage );
-    }
+	public XParseError ( String errorMessage )
+	{
+		super ( errorMessage );
+	}
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 }
 
 // ---------------------------------------------------------------------

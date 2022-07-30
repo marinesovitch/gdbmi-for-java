@@ -4,7 +4,7 @@ import com.sun.jdi.Value;
 
 interface IDebugVariableValue
 {
-    public boolean isNull();
-    public String getRawString();
-    public Value getNativeValue();
+	public boolean isNull();
+	public String getRawString();
+	public Value getNativeValue();
 }

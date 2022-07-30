@@ -8,6 +8,6 @@ import com.sun.jdi.*;
 
 public interface IVisualizerFactory
 {
-    String[] getSupportedTypes();
-    IVisualizer allocVisualizer( VirtualMachine vm, String typeName );
+	String[] getSupportedTypes();
+	IVisualizer allocVisualizer( VirtualMachine vm, String typeName );
 }
