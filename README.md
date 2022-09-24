@@ -10,7 +10,7 @@ It implements only a subset of GDB/MI commands which we call from VS Add-in. The
 
 ## Sources
 
-I was the main developer of that module, although the co-founder was also involved in it. Therefore the sources, <u>**are not complete**</u>. Some parts (like expression parser) have been removed as not implemented by me. Hence it is buildable but can't run properly. Although, I thought it is still worth putting onto GitHub for my portfolio, andto prove I touched Java in the past ;-)
+I was the main developer of that module, although the co-founder was also involved in it. Therefore the sources, <u>**are not complete**</u>. Some parts (like expression parser) have been removed as not implemented by me. Hence it is buildable but can't run properly. Although, I thought it is still worth putting onto GitHub for my portfolio, and to prove I touched Java in the past ;-)
 
 ### The directory structure
 
